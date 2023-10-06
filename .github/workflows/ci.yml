@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/frontend/**"
+      - "packages/backend/**"
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install Dependencies
+        run: pnpm i
+
+  frontend-ci:
+    if: contains(github.event.head_commit.modified, 'packages/frontend/')
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Run Frontend CI Script
+        run: cd packages/frontend && pnpm run ci
+
+  backend-ci:
+    if: contains(github.event.head_commit.modified, 'packages/backend/')
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Run Backend CI Script
+        run: cd packages/backend && pnpm run ci
