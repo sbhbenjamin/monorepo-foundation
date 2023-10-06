@@ -1,22 +1,26 @@
 {
-  "name": "@lerna-playground/backend",
+  "name": "@monorepo-template/backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/app.ts",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "ci": "npm run lint && npm run test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lerna-playground/common": "workspace:^",
     "express": "^4.18.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.18",
+    "@types/supertest": "^2.0.14",
+    "supertest": "^6.3.3",
     "ts-node": "^10.9.1"
   }
 }
