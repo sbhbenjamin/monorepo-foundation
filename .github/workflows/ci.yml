@@ -7,6 +7,11 @@ on:
     paths:
       - 'packages/frontend/**'
       - 'packages/backend/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'packages/frontend/**'
+      - 'packages/backend/**'
 
 jobs:
   ci:
