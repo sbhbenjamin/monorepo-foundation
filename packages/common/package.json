@@ -1,5 +1,5 @@
 {
-  "name": "@lerna-playground/common",
+  "name": "@monorepo-foundation/common",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
