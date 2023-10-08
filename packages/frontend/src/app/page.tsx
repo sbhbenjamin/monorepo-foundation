@@ -1,6 +1,6 @@
 import Image from "next/image";
-import type { User } from "@monorepo-foundation/common";
 
+import type { User } from "@monorepo-foundation/common";
 
 export default function Home() {
   const sampleUser: User = {
