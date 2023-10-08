@@ -1,17 +1,8 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'packages/frontend/**'
-      - 'packages/backend/**'
   pull_request:
     branches: [main]
-    paths:
-      - 'packages/frontend/**'
-      - 'packages/backend/**'
 
 jobs:
   ci:
@@ -36,7 +27,7 @@ jobs:
       run: pnpm install
 
     - name: Run Frontend CI script
-      run: pnpm --filter @monorepo-template/frontend run ci
+      run: pnpm --filter @monorepo-foundation/frontend run ci
 
     - name: Run Backend CI script
-      run: pnpm --filter @monorepo-template/backend run ci
+      run: pnpm --filter @monorepo-foundation/backend run ci
